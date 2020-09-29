@@ -1,7 +1,7 @@
 # contoso-az-connectedrg/main.tf
 resource "azurerm_resource_group" "rgs" {  
     count = length(var.rg_names)
-    name = "${var.prefix}_${var.rg_names[count.index]}"
+    name = "${var.prefix}_${terraform.workspace}__${var.rg_names[count.index]}"
     location = var.region
     tags = var.tags
 }
